@@ -7,9 +7,9 @@ $password = "";
 $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 
 $options = [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES => false
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, //Memberi tahu info error
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, // Mengembalikan array associative
+    PDO::ATTR_EMULATE_PREPARES => false // Mengatur siapa yang eksekusi prepare (false = sql, true = php)
 ];
 
 try {

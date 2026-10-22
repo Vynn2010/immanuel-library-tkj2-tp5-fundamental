@@ -40,7 +40,9 @@ function getBook($id)
 {
   global $pdo;
 
-  $query = " select id, title, isbn, year, stock, category_id, description from books where id = :id";
+  $query = " select b.id, b.title, b.isbn, b.year, b.stock, b.category_id, b.description, c.name as category from books b
+             left join categories c on b.category_id = c.id  where b.id = :id
+           ";
   $stmt = $pdo->prepare($query);
   $stmt->execute([
     'id' => $id
@@ -63,9 +65,10 @@ function getBook($id)
     'book_id' => $book['id']
   ]);
 
-  $authorIds = $stmt->fetchAll();
+  $authors = $stmt->fetchAll();
 
-  $book['author_ids'] = array_column($authorIds, 'id');
+  $book['author_ids'] = array_column($authors, 'id');
+  $book['authors'] = array_column($authors, 'name');
   
   return $book;
 }

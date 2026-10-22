@@ -20,6 +20,7 @@ function getCategory()
     "id"          => 1,
     "name"        => "Fiksi",
     "description" => "Novel dan cerita rekaan",
+    
   ];
 
   return $category;
