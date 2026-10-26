@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . "/../../middleware/auth.php";  
 session_start();
 
 $errors = $_SESSION['errors'] ?? [];

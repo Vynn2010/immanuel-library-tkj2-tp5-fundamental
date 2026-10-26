@@ -56,7 +56,7 @@ function requireRole(array $roles)
 {
     requireAuth();
 
-    if (hasRole($roles)){
+    if (!hasRole($roles)){
         header('Location: ' . FORBIDDEN_URL);
         exit;
     }

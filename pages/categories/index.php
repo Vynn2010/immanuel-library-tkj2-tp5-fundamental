@@ -1,5 +1,8 @@
 <?php
 require_once __DIR__ . "/../../repositories/category-repository.php";
+require_once __DIR__ . "/../../config/database.php";
+require_once __DIR__ . "/../../middleware/auth.php";
+requireRole(['admin']);
 
 $categories = getCategories();
 
